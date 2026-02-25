@@ -1,0 +1,95 @@
+%% main.tex — ACM CHI Paper Starter Template
+%% ===========================================
+%% Document class: acmart (sigconf = CHI / CSCW two-column proceedings)
+%% Compile with: pdflatex -> bibtex -> pdflatex -> pdflatex
+%%           or: latexmk -pdf main.tex
+
+\documentclass[sigconf, review]{acmart}
+
+%% --- Required ACM metadata ---
+%% Update these before submission.
+\acmConference[CHI '25]{CHI Conference on Human Factors in Computing Systems}{April 26--May 1, 2025}{Yokohama, Japan}
+\acmYear{2025}
+\acmISBN{}     % leave empty for review submissions
+\acmDOI{}      % leave empty for review submissions
+
+%% --- Copyright ---
+%% Uncomment ONE of the following for the final camera-ready version:
+% \setcopyright{acmcopyright}
+% \setcopyright{acmlicensed}
+% \setcopyright{rightsretained}
+\setcopyright{none}  % use for review / preprint
+
+%% --- Packages ---
+\usepackage{xspace}   % smart spacing after macros
+\usepackage{xcolor}   % color support (also used by acmart)
+\usepackage{graphicx} % \includegraphics
+\usepackage{booktabs} % professional-quality tables (\toprule, \midrule, \bottomrule)
+\usepackage{hyperref} % hyperlinks (loaded by acmart, but listed for clarity)
+
+%% --- Custom definitions ---
+\input{defs}
+
+%% ===========================================
+%% Paper metadata — FILL THESE IN
+%% ===========================================
+
+\title{Your Paper Title Here}
+% For a subtitle, use:
+% \subtitle{Your Subtitle Here}
+
+\author{First Author}
+\affiliation{%
+  \institution{Your Institution}
+  \city{City}
+  \country{Country}
+}
+\email{firstauthor@example.com}
+
+\author{Second Author}
+\affiliation{%
+  \institution{Your Institution}
+  \city{City}
+  \country{Country}
+}
+\email{secondauthor@example.com}
+
+%% ACM CCS concepts — generate at https://dl.acm.org/ccs
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003120.10003121</concept_id>
+       <concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+\ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
+
+\keywords{keyword one, keyword two, keyword three}
+
+%% ===========================================
+\begin{document}
+
+%% Abstract (defined in sections/abstract.tex)
+\input{sections/abstract}
+
+\maketitle
+
+%% --- Body sections ---
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+%% --- Acknowledgments ---
+\input{sections/acknowledgments}
+
+%% --- Bibliography ---
+%% references.bib is populated from Zotero (see references.bib for instructions)
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}
