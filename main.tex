@@ -20,13 +20,6 @@
 % \setcopyright{rightsretained}
 \setcopyright{none}  % use for review / preprint
 
-%% --- Packages ---
-\usepackage{xspace}   % smart spacing after macros
-\usepackage{xcolor}   % color support (also used by acmart)
-\usepackage{graphicx} % \includegraphics
-\usepackage{booktabs} % professional-quality tables (\toprule, \midrule, \bottomrule)
-\usepackage{hyperref} % hyperlinks (loaded by acmart, but listed for clarity)
-
 %% --- Custom definitions ---
 \input{defs}
 
@@ -38,21 +31,7 @@
 % For a subtitle, use:
 % \subtitle{Your Subtitle Here}
 
-\author{First Author}
-\affiliation{%
-  \institution{Your Institution}
-  \city{City}
-  \country{Country}
-}
-\email{firstauthor@example.com}
-
-\author{Second Author}
-\affiliation{%
-  \institution{Your Institution}
-  \city{City}
-  \country{Country}
-}
-\email{secondauthor@example.com}
+\input{author_anon}
 
 %% ACM CCS concepts — generate at https://dl.acm.org/ccs
 \begin{CCSXML}
@@ -72,20 +51,20 @@
 \begin{document}
 
 %% Abstract (defined in sections/abstract.tex)
-\input{sections/abstract}
+\input{sections/0-abstract}
 
 \maketitle
 
 %% --- Body sections ---
-\input{sections/introduction}
-\input{sections/related-work}
-\input{sections/methods}
-\input{sections/results}
-\input{sections/discussion}
-\input{sections/conclusion}
+\input{sections/1-introduction}
+\input{sections/2-related-work}
+\input{sections/3-methods}
+\input{sections/4-results}
+\input{sections/5-discussion}
+\input{sections/6-conclusion}
 
 %% --- Acknowledgments ---
-\input{sections/acknowledgments}
+\input{sections/7-acknowledgments}
 
 %% --- Bibliography ---
 %% references.bib is populated from Zotero (see references.bib for instructions)

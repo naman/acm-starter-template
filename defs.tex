@@ -1,8 +1,224 @@
 %% defs.tex — Custom definitions, macros, and configuration
 %% =========================================================
 
-%% --- Color definitions (requires xcolor, loaded by acmart) ---
-% \definecolor{myblue}{RGB}{0, 82, 155}
+\usepackage{booktabs}
+\usepackage{setspace} 
+\usepackage{amsmath}
+\usepackage{xurl}
+\usepackage[most]{tcolorbox}
+\usepackage{xspace}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{xparse}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{scalerel}
+\usepackage{bm}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage[normalem]{ulem}
+\usepackage[strings]{underscore}
+\usepackage{epigraph}
+% highlight
+\usepackage{color,soul}
+\usepackage{longtable}
+% quotes 
+\usepackage{ulem}
+
+\usepackage{csquotes}
+\usepackage{tikz}
+\usepackage{venndiagram}
+% for strikeout
+\usepackage{calc}
+\usepackage{fp}
+\newcounter{z}
+\usepackage{svg}
+
+\usepackage{float}
+\usepackage{booktabs}
+
+
+\usepackage{fontawesome5}
+\usepackage{tcolorbox}
+
+
+\usepackage{listings}
+
+
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+
+% Spacing! % https://texdoc.org/serve/savetrees.pdf/0
+\usepackage[subtle]{savetrees}
+
+\renewcommand{\subparagraph}[1]{
+\vspace{2mm}
+\textit{#1}
+}
+
+\providecommand{\setstretch}[1]{}
+\newcommand{\mpage}[2]{\begin{minipage}[t]{#1\textwidth}\setstretch{1.03}\small\vspace{0pt}  #2
+\end{minipage}}% \begin{minipage}[t]{#1\textwidth}\setstretch{1.03}\gamesfontsize  #2 \end{minipage}
+\newcommand{\framedminipage}[2]{\framebox{\mpage{#1}{#2}}}
+\newcommand{\fpage}[2]{\framebox{\mpage{#1}{#2}}}
+
+\newcommand{\hpages}[3]{
+  \begin{tabular}{cc}
+    \mpage{#1}{#2} & \mpage{#1}{#3}
+  \end{tabular}
+}
+
+\newcommand{\hfpages}[3]{\hfpagess{#1}{#1}{#2}{#3}}
+\newcommand{\hfpagess}[4]{
+  \begin{tabular}[t]{c@{\hspace*{.2em}}c}
+    \framedminipage{#1}{#3}
+    & \framedminipage{#2}{#4}
+  \end{tabular}
+}
+\newcommand{\hfpagesss}[6]{
+  \begin{tabular}[t]{c@{\hspace*{.2em}}c@{\hspace*{.2em}}c}
+    \framedminipage{#1}{#4}
+    & \framedminipage{#2}{#5}
+    & \framedminipage{#3}{#6}
+  \end{tabular}
+}
+% prettier captions courtesy of Jaron
+\newcommand{\mycaption}[2]{
+    \caption{
+        \textbf{#1} -- \textmd{\small #2}
+        }
+    }
+
+\newcommand{\subscript}[2]{$#1 _ #2$}
+
+% % Custom quote environment
+\renewenvironment{quote}[1]{%
+  \def\quoteauthor{#1}% store author name
+  \begin{list}{}{%
+    \leftmargin0.3cm
+    \rightmargin\leftmargin
+  }%
+  \item\relax
+  \itshape ``%
+}{% end-code
+  ’’% closing quote
+  \hspace{0.2cm}\normalfont\small\hfill{--- \quoteauthor}%
+  \end{list}%
+}
+
+%%% Use this for quotes where authors name goes to the second line
+\newenvironment{quotel}[1]{%
+  \def\quoteauthor{#1}% store author name
+  \begin{list}{}{%
+    \leftmargin0.3cm
+    \rightmargin\leftmargin
+  }%
+  \item\relax
+  \itshape``% opening quote (no space after)
+}{% end-code
+  ''% closing quote (no space before)
+  \par\vspace{-0.5ex}% move author to new line, tighten spacing
+  \normalfont\small\hfill--- \quoteauthor%
+  \end{list}%
+}
+
+
+
+% for figures
+\newcommand{\graycell}{\cellcolor{gray!15!white}}
+\newcommand{\tintcell}[2]{\cellcolor{#2!#1}#1}
+\newcommand{\y}{\checkmark}
+\newcommand{\xmark}{\ding{55}}
+% \newcommand{\n}{\color{gray!50!white}{\xmark}}
+\newcommand{\n}{\color{gray}{$-$}}
+% \newcommand{\graycell}{\cellcolor{gray!15}}
+\newcommand{\ish}{$^*$}
+\newcommand{\tab}[1][1cm]{\hspace*{#1}}
+
+
+% notes
+\newcommand{\fixme}[1]{{\color{Red}{[\textbf{FIXME: #1}]}}}
+
+% shortcuts
+\newcommand{\etal}{et al.}
+
+\def\diff{0}
+
+%revisoins
+\newcommand{\removed}[1]{%
+  \ifnum\diff=1%
+    {\color{magenta}\sout{#1}}%
+  \fi%
+}
+\newcommand{\changed}[1]{%
+  \ifnum\diff=1%
+    {\color{blue}\uline{#1}}%
+  \else%
+    #1%
+  \fi%
+}
+% revisions
+
+
+\def\authnote{1}
+\newcounter{rcnote}[section]
+\newcommand{\rcnote}[1]{\ifnum\authnote=1\refstepcounter{rcnote}{\bf \textcolor{magenta}{$\ll$RC: {\sf #1}$\gg$}}\fi}
+% \newcommand{\mytab}{\hspace*{.4cm}}
+
+\def\UrlBreaks{\do\/\do-}
+\setlength{\topsep}{2pt}
+\newcommand{\tabfontsize}{\footnotesize}
+
+
+\newcommand{\bulletpoint}{$\lozenge$\xspace }
+\newcommand{\recbullet}{$\blacklozenge$\xspace }
+
+\definecolor{acm-purple}{RGB}{90, 53, 158}
+\definecolor{acm-green}{RGB}{0, 102, 0}
+\definecolor{acm-darkblue}{RGB}{0, 51, 102}
+
+\hypersetup{
+  colorlinks   = true,
+  linkcolor    = acm-purple,
+  citecolor    = acm-green,
+  urlcolor     = acm-darkblue,
+  filecolor    = acm-darkblue
+}
+
+
+\newlength{\saveparindent}
+\setlength{\saveparindent}{\parindent}
+\newlength{\saveparskip}
+\setlength{\saveparskip}{\parskip}
+
+\newcommand{\emp}[1]{\emph{\bf #1}}
+
+\newcounter{ctr}
+\newcounter{savectr}
+\newcounter{ectr}
+
+\newenvironment{newitemize}{%
+\begin{list}{\mbox{}\hspace{5pt}$\bullet$\hfill}{\labelwidth=15pt%
+\labelsep=4pt \leftmargin=12pt \topsep=3pt%
+\setlength{\listparindent}{\saveparindent}%
+\setlength{\parsep}{\saveparskip}%
+\setlength{\itemsep}{3pt} }}{\end{list}}
+
+
+\newenvironment{newenum}{%
+  \begin{list}{{\rm (\arabic{ctr})}\hfill}{\usecounter{ctr} %
+      \labelwidth=10pt \labelsep=5pt \leftmargin=15pt \topsep=3pt%
+      \setlength{\listparindent}{\saveparindent}%
+      \setlength{\parsep}{\saveparskip}%
+      \setlength{\itemsep}{2pt} }}{\end{list}%
+}
+\usepackage{tabularx,array}   % for flexible tables
+
 
 %% --- Custom commands ---
 % Shorthand for et al.
@@ -11,14 +227,35 @@
 % Shorthand for paper title (update to match \title{} in main.tex)
 \newcommand{\papertitle}{Your Paper Title Here\xspace}
 
-%% --- Formatting helpers ---
-% Inline code snippet
-\newcommand{\code}[1]{\texttt{#1}}
+
+
+%  MACROS
+\newcommand{\naman}[1]{\textbf{{\color{teal}\emph{NG:~ #1}}}}
 
 % TODO marker (remove before submission)
 \newcommand{\todo}[1]{\textbf{\textcolor{red}{[TODO: #1]}}}
 
-%% --- Theorem / definition environments (optional) ---
-% Uncomment if needed:
-% \newtheorem{definition}{Definition}
-% \newtheorem{theorem}{Theorem}
+
+\newcommand{\lgbt}{LGBTQ2S+\xspace}
+
+\newcommand{\univ}{[U.S. University]\xspace}  %% after publication, we can set it to UW-Madison
+\newcommand{\wi}{[US. State]\xspace}  %% after publication, we can set it Wisconsin, Ho-chunk land, USA
+\newcommand{\techclinic}{[Victim-Advocacy organization]\xspace} 
+\newcommand{\hochunk}{[Tribe]\xspace}%{[\textit{tech clinic}]} Ho-Chunk Nation
+\newcommand{\teejop}{[City]\xspace}%{[\textit{tech clinic}]} Madison
+
+
+\newlist{researchquestions}{enumerate}{1}
+\setlist[researchquestions]{label*=\textbf{RQ\arabic*}}
+
+
+% remove useless space between Sections
+\renewcommand{\sectionautorefname}{\S}
+\renewcommand{\subsectionautorefname}{\S}
+\renewcommand{\subsubsectionautorefname}{\S}
+% \renewcommand{\footnoteautorefname}{\divideontimes}
+
+
+% numbers
+\newcommand{\ntodo}{X\xspace}
+
